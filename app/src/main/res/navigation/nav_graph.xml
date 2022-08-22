@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/flowFragment"
+        android:name="com.auliamnaufal.safeargsnavigationcomponents.FlowFragment"
+        tools:layout="@layout/fragment_flow">
+        <action
+            android:id="@+id/next_screen"
+            app:destination="@id/flowEndFragment" />
+        <argument
+            android:name="flowStepNum"
+            android:defaultValue="1"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/flowEndFragment"
+        android:name="com.auliamnaufal.safeargsnavigationcomponents.FlowFragment"
+        tools:layout="@layout/fragment_flow">
+        <action
+            android:id="@+id/next_screen"
+            app:destination="@id/homeFragment" />
+        <argument
+            android:name="flowStepNum"
+            android:defaultValue="2"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.auliamnaufal.safeargsnavigationcomponents.HomeFragment"
+        android:label="HomeFragment" >
+        <action
+            android:id="@+id/next_screen"
+            app:destination="@id/flowFragment" />
+    </fragment>
+</navigation>
